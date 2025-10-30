@@ -1,6 +1,15 @@
+"use client";
+
+import { useState } from "react";
+import TrialModal from "./TrialModal";
+
 export default function Hero() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section className="bg-gradient-to-r from-white to-gray-50">
+      <TrialModal open={open} onClose={() => setOpen(false)} />
+
       <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24 flex flex-col lg:flex-row items-center gap-10">
         <div className="flex-1">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
@@ -9,7 +18,7 @@ export default function Hero() {
           <p className="text-gray-600 mb-6">매출과 재고를 한 번에. 자동 예측, 발주 추천, 맞춤 리포트로 더 쉽게 운영하세요.</p>
 
           <div className="flex gap-3 flex-wrap">
-            <button className="bg-blue-600 text-white px-5 py-3 rounded-md font-semibold hover:bg-blue-700">무료로 시작하기</button>
+            <button onClick={() => setOpen(true)} className="bg-blue-600 text-white px-5 py-3 rounded-md font-semibold hover:bg-blue-700">무료로 시작하기</button>
             <button className="border border-gray-200 px-5 py-3 rounded-md text-gray-700 hover:bg-gray-50">데모 신청</button>
           </div>
 
